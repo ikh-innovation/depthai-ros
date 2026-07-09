@@ -5,6 +5,10 @@
 #include "opencv2/calib3d.hpp"
 #include "opencv2/imgcodecs.hpp"
 
+#ifndef CV_16F
+#define CV_16F 7
+#endif
+
 namespace dai {
 
 namespace ros {

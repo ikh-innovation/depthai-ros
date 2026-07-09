@@ -35,7 +35,7 @@ void ThermalTemp::subCB(const sensor_msgs::ImageConstPtr& img) {
     cv::Mat normalized;
     cv::normalize(frameFp32, normalized, 0, 255, cv::NORM_MINMAX, CV_8UC1);
     cv::Mat colormapped;
-    cv::applyColorMap(normalized, colormapped, cv::COLORMAP_MAGMA);
+    cv::applyColorMap(normalized, colormapped, cv::COLORMAP_PARULA);
     if(mouseX < 0 || mouseY < 0 || mouseX >= colormapped.cols || mouseY >= colormapped.rows) {
         mouseX = std::max(0, std::min(static_cast<int>(mouseX), colormapped.cols - 1));
         mouseY = std::max(0, std::min(static_cast<int>(mouseY), colormapped.rows - 1));

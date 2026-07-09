@@ -74,7 +74,7 @@ void TFPublisher::publishDescription(::ros::NodeHandle node) {
         throw std::runtime_error("Failed to extract kdl tree from xml robot description");
     }
     rsp = std::make_shared<robot_state_publisher::RobotStatePublisher>(tree, model);
-    rsp->publishFixedTransforms(true);
+    rsp->publishFixedTransforms("", true);
     node.setParam("robot_description", urdf);
     ROS_INFO("Published URDF");
 }
