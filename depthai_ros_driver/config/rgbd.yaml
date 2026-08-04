@@ -1,3 +1,121 @@
 /oak:
+    # ---- General Camera Device Parameters ----
     camera_i_nn_type: none
+    camera_i_enable_ir: false
+    camera_i_floodlight_brightness: 0.0
+    camera_i_laser_dot_brightness: 0.0
+    camera_i_enable_diagnostics: true
+    camera_i_pipeline_type: RGB # RGB, RGBD, Stereo, RGBStereo, Depth
+    camera_i_pipeline_dump: true # true or false whether config json file should be saved 
+    camera_i_usb_speed: SUPER_PLUS
+
+    # ---- Pipeline Parameters ----
+    pipeline_gen_i_enable_imu: true
+    pipeline_gen_i_enable_diagnostics: true
+
+    # ---- Left Mono Camera Parameters ----
+    left_i_fps: 15.0
+    left_i_resolution: 800P
+    left_i_width: 1280
+    left_i_height: 800
+    left_i_publish_topic: true
+
+    left_r_set_man_exposure: false
+    left_r_exposure: 33000 # 1- 33000
+
+    left_r_iso: 800
+
+    # ---- Right Mono Camera Parameters ----
+    right_i_fps: 15.0
+    right_i_resolution: 800P
+    right_i_width: 1280
+    right_i_height: 800
+    right_i_publish_topic: true
+
+    right_r_set_man_exposure: false
+    right_r_exposure: 33000 # 1- 33000
+
+    right_r_iso: 800
+
+    # ---- RGB Camera Parameters ----
+    rgb_i_fps: 15.0
+    rgb_i_resolusion: 800P
+    rgb_i_width: 1280
+    rgb_i_height: 800
+
+    rgb_r_set_man_exposure: false
+    rgb_r_exposure: 33000 # 1- 33000
+
+    rgb_r_set_man_whitebalance: false
+    rgb_r_whitebalance: 3300 # 1000 - 12000
+
+    rgb_r_iso: 800
+
+    # ---- Stereo Depth Parameters ----
+    stereo_i_publish_topic: true
+
+    # Set to enable some PRESET
+    # stereo_i_depth_preset: HIGH_DETAIL # FAST_ACCURACY, DEFAULT, FACE, HIGH_DETAIL, ROBOTICS
+
+    # Threshold Filter
+    stereo_i_enable_threshold_filter: true
+    stereo_i_threshold_filter_min_range: 0 # mm
+    stereo_i_threshold_filter_max_range: 13000 # mm
+
+    # Temporal Filter (Consecutive frames comparison)
+    stereo_i_enable_temporal_filter: false
+    stereo_i_temporal_filter_alpha: 0.4 # Weight of current frame (0-1)
+    stereo_i_temporal_filter_delta: 20 # Threshold for valid depth change
+    stereo_i_temporal_filter_persistency: VALID_2_IN_LAST_4
+
+    # Subpixel Mode (for more accurate depth, but with increased HW resourses usage)
     stereo_i_subpixel: true
+    stereo_i_subpixel_fractional_bits: 3
+
+    # LR Check ()
+    stereo_i_lr_check: true
+    stereo_i_lrc_threshold: 5
+
+    # ======= TUNE ======= # 
+
+    # Decimation (Sub-sampling) Filter
+    stereo_i_enable_decimation_filter: true
+    stereo_i_decimation_filter_decimation_mode: NON_ZERO_MEDIAN # PIXEL_SKIPPING, NON_ZERO_MEDIAN, NON_ZERO_MEAN
+    stereo_i_decimation_filter_decimation_factor: 2 # 1, 2, 3, 4
+
+    # Brightness Filter
+    stereo_i_enable_brightness_filter: true
+    stereo_i_brightness_filter_min_brightness: 0 # for extreme shadows
+    stereo_i_brightness_filter_max_brightness: 150 # for extreme lighting
+
+    # Speckle Filter
+    stereo_i_enable_speckle_filter: true
+    stereo_i_speckle_filter_speckle_range: 50
+
+    # Spatial Filter (Will fill invalid depth pixels with valid neighboring depth pixels)
+    stereo_i_enable_spatial_filter: true
+    stereo_i_spatial_filter_hole_filling_radius: 2 # Radius for hole filling
+    stereo_i_spatial_filter_alpha: 0.5 # Edge-preserving strength
+    stereo_i_spatial_filter_delta: 20 # Threshold for valid depth change
+    stereo_i_spatial_filter_iterations: 1 # Number of iterations
+
+    # Median Filter
+    stereo_i_median_filter: MEDIAN_OFF # MEDIAN_OFF, KERNEL_3x3, KERNEL_5x5, KERNEL_7x7s
+
+    # Confidence Threshold (0: max confidence, 255: min confidence)
+    stereo_i_stereo_conf_threshold: 105 
+    
+    ### Short Range Settings ###
+    # Companding Mode
+    stereo_i_enable_companding: false
+
+    # Disparity Shift (to reduce minZ by also reducing maxZ from inf. For usage in controlled environments only)
+    stereo_i_enable_disparity_shift: false
+    stereo_i_disparity_shift: 0 # 4.28 for Zmax = 10m
+
+    # Extended Disparity (minZ is halved, depth computation happens twice)
+    stereo_i_extended_disp: false 
+
+    # Depth Align
+    stereo_i_align_depth: true
+    stereo_i_set_input_size: false

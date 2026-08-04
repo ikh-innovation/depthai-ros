@@ -117,6 +117,12 @@
 
 	<arg name="launch_prefix" default="" />
 
+	<!-- <group ns="$(arg name)/stereo/image_raw">
+        <rosparam param="disable_pub_plugins">['image_transport/compressed']</rosparam>
+    </group>
+    <group ns="$(arg name)/stereo/image_raw">
+        <rosparam param="disable_pub_plugins">['image_transport/compressedDepth']</rosparam>
+    </group> -->
 
 	<rosparam file="$(arg params_file)" />
 	<node pkg="rosservice" if="$(optenv DEPTHAI_DEBUG 0)" type="rosservice" name="set_log_level"

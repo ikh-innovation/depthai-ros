@@ -22,6 +22,13 @@
     <arg name="cam_yaw" default="0.0" />
     <!-- Orientation respect to base frame (i.e. "base_link) -->
 
+    <!-- <group ns="$(arg name)/stereo/image_raw">
+        <rosparam param="disable_pub_plugins">['image_transport/compressed']</rosparam>
+    </group>
+    <group ns="$(arg name)/stereo/image_raw">
+        <rosparam param="disable_pub_plugins">['image_transport/compressedDepth']</rosparam>
+    </group> -->
+
     <rosparam file="$(arg params_file)" />
     <include file="$(find depthai_ros_driver)/launch/camera.launch">
         <arg name="name" value="$(arg name)"/>
@@ -36,7 +43,7 @@
         <arg name="cam_pitch" value="$(arg  cam_pitch)" />
         <arg name="cam_yaw" value="$(arg  cam_yaw)" />
 		<arg name="rectify_rgb" value="$(arg rectify_rgb)" />
-		<arg name="enable_pointcloud" value="true" />
+		<arg name="enable_pointcloud" value="false" />
     </include>
 
 
