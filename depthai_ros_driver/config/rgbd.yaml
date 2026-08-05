@@ -39,9 +39,9 @@
 
     # ---- RGB Camera Parameters ----
     rgb_i_fps: 15.0
-    rgb_i_resolusion: 800P
-    rgb_i_width: 1280
-    rgb_i_height: 800
+    rgb_i_resolusion: 1080P
+    rgb_i_width: 1920
+    rgb_i_height: 1080
 
     rgb_r_set_man_exposure: false
     rgb_r_exposure: 33000 # 1- 33000
