@@ -11,7 +11,7 @@
   camera_i_usb_speed: SUPER_PLUS
   nn_i_nn_config_path: depthai_ros_driver/mobilenet
 
-  stereo_i_publish_topic: false
+  stereo_i_publish_topic: true
 
   camera_i_enable_diagnostics: true
 

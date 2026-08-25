@@ -5,9 +5,10 @@
     camera_i_floodlight_brightness: 0.0
     camera_i_laser_dot_brightness: 0.0
     camera_i_enable_diagnostics: true
-    camera_i_pipeline_type: RGB # RGB, RGBD, Stereo, RGBStereo, Depth
-    camera_i_pipeline_dump: true # true or false whether config json file should be saved 
+    camera_i_pipeline_type: RGBD # RGB, RGBD, Stereo, RGBStereo, Depth
+    camera_i_pipeline_dump: false # true or false whether config json file should be saved 
     camera_i_usb_speed: SUPER_PLUS
+    camera_i_restart_on_diagnostics_error: true
 
     # ---- Pipeline Parameters ----
     pipeline_gen_i_enable_imu: true
@@ -39,7 +40,7 @@
 
     # ---- RGB Camera Parameters ----
     rgb_i_fps: 15.0
-    rgb_i_resolusion: 1080P
+    rgb_i_resolution: 1080P
     rgb_i_width: 1920
     rgb_i_height: 1080
 
