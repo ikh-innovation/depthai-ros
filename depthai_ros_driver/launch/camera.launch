@@ -152,7 +152,7 @@
 		<remap from="/nodelet_manager/list" to="$(arg name)/nodelet_manager/list" />
 	</node>
 
-	<node name="$(arg  name)" pkg="nodelet" type="nodelet" output="screen" required="true"
+	<node name="$(arg  name)" pkg="nodelet" type="nodelet" output="screen" required="true" clear_params="true"
 		args="load depthai_ros_driver/Camera $(arg  name)_nodelet_manager">
 	</node>
 

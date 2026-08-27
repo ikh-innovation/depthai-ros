@@ -7,6 +7,7 @@
     camera_i_enable_diagnostics: true
     camera_i_pipeline_type: RGBD # RGB, RGBD, Stereo, RGBStereo, Depth
     camera_i_pipeline_dump: false # true or false whether config json file should be saved 
+    camera_i_calibration_dump: false
     camera_i_usb_speed: SUPER_PLUS
     camera_i_restart_on_diagnostics_error: true
 
@@ -54,6 +55,8 @@
 
     # ---- Stereo Depth Parameters ----
     stereo_i_publish_topic: true
+    # stereo_i_width: 1920
+    # stereo_i_height: 1080
 
     # Set to enable some PRESET
     # stereo_i_depth_preset: HIGH_DETAIL # FAST_ACCURACY, DEFAULT, FACE, HIGH_DETAIL, ROBOTICS
@@ -87,15 +90,15 @@
     # Brightness Filter
     stereo_i_enable_brightness_filter: true
     stereo_i_brightness_filter_min_brightness: 0 # for extreme shadows
-    stereo_i_brightness_filter_max_brightness: 150 # for extreme lighting
+    stereo_i_brightness_filter_max_brightness: 186 # for extreme lighting
 
-    # Speckle Filter
-    stereo_i_enable_speckle_filter: true
-    stereo_i_speckle_filter_speckle_range: 50
+    # # Speckle Filter
+    # stereo_i_enable_speckle_filter: true
+    # stereo_i_speckle_filter_speckle_range: 50
 
     # Spatial Filter (Will fill invalid depth pixels with valid neighboring depth pixels)
     stereo_i_enable_spatial_filter: true
-    stereo_i_spatial_filter_hole_filling_radius: 2 # Radius for hole filling
+    stereo_i_spatial_filter_hole_filling_radius: 4 # Radius for hole filling
     stereo_i_spatial_filter_alpha: 0.5 # Edge-preserving strength
     stereo_i_spatial_filter_delta: 20 # Threshold for valid depth change
     stereo_i_spatial_filter_iterations: 1 # Number of iterations
@@ -104,7 +107,7 @@
     stereo_i_median_filter: MEDIAN_OFF # MEDIAN_OFF, KERNEL_3x3, KERNEL_5x5, KERNEL_7x7s
 
     # Confidence Threshold (0: max confidence, 255: min confidence)
-    stereo_i_stereo_conf_threshold: 105 
+    stereo_i_stereo_conf_threshold: 200 
     
     ### Short Range Settings ###
     # Companding Mode
@@ -118,5 +121,5 @@
     stereo_i_extended_disp: false 
 
     # Depth Align
-    stereo_i_align_depth: true
+    stereo_i_align_depth: true # true or false
     stereo_i_set_input_size: false
