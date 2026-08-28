@@ -1,10 +1,10 @@
 /oak:
     # ---- General Camera Device Parameters ----
     camera_i_nn_type: none
-    camera_i_enable_ir: false
-    camera_i_floodlight_brightness: 0.0
-    camera_i_laser_dot_brightness: 0.0
-    camera_i_enable_diagnostics: true
+    camera_i_enable_ir: true
+    camera_i_floodlight_brightness: 0 # 0 - 1000
+    camera_i_laser_dot_brightness: 1000 # 0 - 1000
+    camera_i_enable_diagnostics: false
     camera_i_pipeline_type: RGBD # RGB, RGBD, Stereo, RGBStereo, Depth
     camera_i_pipeline_dump: false # true or false whether config json file should be saved 
     camera_i_calibration_dump: false
@@ -17,9 +17,9 @@
 
     # ---- Left Mono Camera Parameters ----
     left_i_fps: 15.0
-    left_i_resolution: 800P
+    left_i_resolution: 720P # 720P or 800P
     left_i_width: 1280
-    left_i_height: 800
+    left_i_height: 720 # 720 or 800
     left_i_publish_topic: true
 
     left_r_set_man_exposure: false
@@ -29,9 +29,9 @@
 
     # ---- Right Mono Camera Parameters ----
     right_i_fps: 15.0
-    right_i_resolution: 800P
+    right_i_resolution: 720P # 720P or 800P
     right_i_width: 1280
-    right_i_height: 800
+    right_i_height: 720 # 720 or 800
     right_i_publish_topic: true
 
     right_r_set_man_exposure: false
@@ -59,55 +59,55 @@
     # stereo_i_height: 1080
 
     # Set to enable some PRESET
-    # stereo_i_depth_preset: HIGH_DETAIL # FAST_ACCURACY, DEFAULT, FACE, HIGH_DETAIL, ROBOTICS
+    # stereo_i_depth_preset: ROBOTICS # DEFAULT, FACE, HIGH_DETAIL, ROBOTICS, FAST_DENSITY, FAST_ACCURACY (FAST_{} Presets have some error)
 
     # Threshold Filter
     stereo_i_enable_threshold_filter: true
     stereo_i_threshold_filter_min_range: 0 # mm
-    stereo_i_threshold_filter_max_range: 13000 # mm
+    stereo_i_threshold_filter_max_range: 10000 # mm
 
     # Temporal Filter (Consecutive frames comparison)
     stereo_i_enable_temporal_filter: false
-    stereo_i_temporal_filter_alpha: 0.4 # Weight of current frame (0-1)
+    stereo_i_temporal_filter_alpha: 0.5 # Weight of current frame (0-1)
     stereo_i_temporal_filter_delta: 20 # Threshold for valid depth change
     stereo_i_temporal_filter_persistency: VALID_2_IN_LAST_4
 
     # Subpixel Mode (for more accurate depth, but with increased HW resourses usage)
     stereo_i_subpixel: true
-    stereo_i_subpixel_fractional_bits: 3
+    stereo_i_subpixel_fractional_bits: 5 # 3, 4, 5
 
     # LR Check ()
     stereo_i_lr_check: true
-    stereo_i_lrc_threshold: 5
+    stereo_i_lrc_threshold: 10
 
     # ======= TUNE ======= # 
 
     # Decimation (Sub-sampling) Filter
     stereo_i_enable_decimation_filter: true
-    stereo_i_decimation_filter_decimation_mode: NON_ZERO_MEDIAN # PIXEL_SKIPPING, NON_ZERO_MEDIAN, NON_ZERO_MEAN
+    stereo_i_decimation_filter_decimation_mode: PIXEL_SKIPPING # PIXEL_SKIPPING, NON_ZERO_MEDIAN, NON_ZERO_MEAN
     stereo_i_decimation_filter_decimation_factor: 2 # 1, 2, 3, 4
 
     # Brightness Filter
     stereo_i_enable_brightness_filter: true
     stereo_i_brightness_filter_min_brightness: 0 # for extreme shadows
-    stereo_i_brightness_filter_max_brightness: 186 # for extreme lighting
+    stereo_i_brightness_filter_max_brightness: 240 # for extreme lighting
 
-    # # Speckle Filter
-    # stereo_i_enable_speckle_filter: true
-    # stereo_i_speckle_filter_speckle_range: 50
+    # Speckle Filter
+    stereo_i_enable_speckle_filter: true
+    stereo_i_speckle_filter_speckle_range: 200
 
     # Spatial Filter (Will fill invalid depth pixels with valid neighboring depth pixels)
     stereo_i_enable_spatial_filter: true
-    stereo_i_spatial_filter_hole_filling_radius: 4 # Radius for hole filling
+    stereo_i_spatial_filter_hole_filling_radius: 2 # Radius for hole filling
     stereo_i_spatial_filter_alpha: 0.5 # Edge-preserving strength
-    stereo_i_spatial_filter_delta: 20 # Threshold for valid depth change
+    stereo_i_spatial_filter_delta: 20 # Threshold for valid depth chansge
     stereo_i_spatial_filter_iterations: 1 # Number of iterations
 
     # Median Filter
-    stereo_i_median_filter: MEDIAN_OFF # MEDIAN_OFF, KERNEL_3x3, KERNEL_5x5, KERNEL_7x7s
+    stereo_i_median_filter: KERNEL_3x3 # MEDIAN_OFF, KERNEL_3x3, KERNEL_5x5, KERNEL_7x7
 
     # Confidence Threshold (0: max confidence, 255: min confidence)
-    stereo_i_stereo_conf_threshold: 200 
+    stereo_i_stereo_conf_threshold: 245 
     
     ### Short Range Settings ###
     # Companding Mode
