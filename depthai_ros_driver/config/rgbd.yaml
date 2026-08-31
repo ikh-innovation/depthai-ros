@@ -55,8 +55,6 @@
 
     # ---- Stereo Depth Parameters ----
     stereo_i_publish_topic: true
-    # stereo_i_width: 1920
-    # stereo_i_height: 1080
 
     # Set to enable some PRESET
     # stereo_i_depth_preset: ROBOTICS # DEFAULT, FACE, HIGH_DETAIL, ROBOTICS, FAST_DENSITY, FAST_ACCURACY (FAST_{} Presets have some error)
