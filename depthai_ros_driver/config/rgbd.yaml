@@ -10,6 +10,7 @@
     camera_i_calibration_dump: false
     camera_i_usb_speed: SUPER_PLUS
     camera_i_restart_on_diagnostics_error: true
+    camera_i_nn_type: none
 
     # ---- Pipeline Parameters ----
     pipeline_gen_i_enable_imu: true
@@ -17,9 +18,9 @@
 
     # ---- Left Mono Camera Parameters ----
     left_i_fps: 15.0
-    left_i_resolution: 720P # 720P or 800P
+    left_i_resolution: 800P # 720P or 800P
     left_i_width: 1280
-    left_i_height: 720 # 720 or 800
+    left_i_height: 800 # 720 or 800
     left_i_publish_topic: true
 
     left_r_set_man_exposure: false
@@ -29,9 +30,9 @@
 
     # ---- Right Mono Camera Parameters ----
     right_i_fps: 15.0
-    right_i_resolution: 720P # 720P or 800P
+    right_i_resolution: 800P # 720P or 800P
     right_i_width: 1280
-    right_i_height: 720 # 720 or 800
+    right_i_height: 800 # 720 or 800
     right_i_publish_topic: true
 
     right_r_set_man_exposure: false
@@ -40,6 +41,7 @@
     right_r_iso: 800
 
     # ---- RGB Camera Parameters ----
+    rgb_i_set_isp_scale: false
     rgb_i_fps: 15.0
     rgb_i_resolution: 1080P
     rgb_i_width: 1920
@@ -53,11 +55,15 @@
 
     rgb_r_iso: 800
 
+    # ---- NN Parameters ----
+    nn_i_nn_config_path: depthai_ros_driver/mobilenet
+    
+
     # ---- Stereo Depth Parameters ----
     stereo_i_publish_topic: true
 
     # Set to enable some PRESET
-    # stereo_i_depth_preset: ROBOTICS # DEFAULT, FACE, HIGH_DETAIL, ROBOTICS, FAST_DENSITY, FAST_ACCURACY (FAST_{} Presets have some error)
+    # stereo_i_depth_preset: HIGH_DETAIL # DEFAULT, FACE, HIGH_DETAIL, ROBOTICS, FAST_DENSITY, FAST_ACCURACY (FAST_{} Presets have some error)
 
     # Threshold Filter
     stereo_i_enable_threshold_filter: true
@@ -102,7 +108,7 @@
     stereo_i_spatial_filter_iterations: 1 # Number of iterations
 
     # Median Filter
-    stereo_i_median_filter: KERNEL_3x3 # MEDIAN_OFF, KERNEL_3x3, KERNEL_5x5, KERNEL_7x7
+    stereo_i_median_filter: MEDIAN_OFF # MEDIAN_OFF, KERNEL_3x3, KERNEL_5x5, KERNEL_7x7
 
     # Confidence Threshold (0: max confidence, 255: min confidence)
     stereo_i_stereo_conf_threshold: 245 
